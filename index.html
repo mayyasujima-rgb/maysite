@@ -2,10 +2,137 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>My GitHub Pages Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to My Site</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Noto Sans JP", "Segoe UI", system-ui, sans-serif;
+      background-color: #030712;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #635bff, #020617 60%);
+      color: #e8ecff;
+      display: flex;
+      justify-content: center;
+      padding: 48px 24px 64px;
+    }
+    main {
+      width: min(960px, 100%);
+      background: rgba(4, 10, 25, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 35px 80px rgba(13, 22, 55, 0.65);
+      backdrop-filter: blur(18px);
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-size: clamp(2.4rem, 3vw, 3rem);
+      letter-spacing: 0.08em;
+    }
+    header p {
+      margin-top: 12px;
+      color: #b1b6d1;
+      font-size: 1rem;
+    }
+    .hero-button {
+      margin-top: 24px;
+      background: linear-gradient(135deg, #9b7dff, #53e0ff);
+      color: #030617;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .hero-button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(83, 224, 255, 0.3);
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .card {
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 20px;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: #b0b6d1;
+      line-height: 1.5;
+      flex: 1;
+    }
+    footer {
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: #9aa0c2;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 520px) {
+      main {
+        padding: 32px 24px;
+      }
+      header {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>ようこそ</h1>
-  <p>これはGitHub Pagesで公開するシンプルなページです。</p>
+  <main>
+    <header>
+      <p>My Digital Corner</p>
+      <h1>魅せるページへようこそ</h1>
+      <p>このサイトは個人のスキルや作品を披露するための空間です。最新のプロジェクトとインスピレーションをまとめています。</p>
+      <button class="hero-button">プロジェクトを見る</button>
+    </header>
+    <section class="cards">
+      <article class="card">
+        <h3>デザイン哲学</h3>
+        <p>大胆な色使いと丁寧な余白を使って、情報をゆったりと伝える。視覚的なリズムを大事にしています。</p>
+      </article>
+      <article class="card">
+        <h3>コードへのこだわり</h3>
+        <p>分かりやすい構造、レスポンシブな振る舞い、アクセシビリティに配慮したマークアップとスタイル。</p>
+      </article>
+      <article class="card">
+        <h3>今後の展望</h3>
+        <p>WebGLやアニメーション、データビジュアライゼーションなど、体験に深みを出す試みに取り組んでいます。</p>
+      </article>
+    </section>
+    <footer>
+      <span>© 2024 My GitHub Pages Site</span>
+      <span>ご要望・ご相談はメールでお気軽に</span>
+    </footer>
+  </main>
 </body>
 </html>
