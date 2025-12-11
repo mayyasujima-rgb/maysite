@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to My Site</title>
+  <title>My Signature Showcase</title>
   <style>
     :root {
-      color-scheme: light;
-      font-family: "Noto Sans JP", "Segoe UI", system-ui, sans-serif;
-      background-color: #030712;
+      color-scheme: dark;
+      font-family: "Noto Sans JP", "Inter", "Segoe UI", system-ui, sans-serif;
+      background-color: #01030b;
     }
     * {
       box-sizing: border-box;
@@ -16,123 +16,334 @@
     }
     body {
       min-height: 100vh;
-      background: radial-gradient(circle at top, #635bff, #020617 60%);
-      color: #e8ecff;
-      display: flex;
-      justify-content: center;
-      padding: 48px 24px 64px;
+      background: radial-gradient(circle at top right, rgba(155, 125, 255, 0.5), transparent 35%),
+                  radial-gradient(circle at 20% 20%, rgba(84, 255, 237, 0.35), transparent 40%),
+                  #01030b;
+      color: #f5f7ff;
+      padding: 0 24px 48px;
     }
     main {
-      width: min(960px, 100%);
-      background: rgba(4, 10, 25, 0.9);
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      padding-top: 60px;
+      border-radius: 36px;
+      background: rgba(4, 10, 25, 0.95);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 35px 80px rgba(13, 22, 55, 0.65);
-      backdrop-filter: blur(18px);
+      box-shadow: 0 45px 95px rgba(4, 8, 25, 0.9);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+    main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.08), transparent 55%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .layout {
+      position: relative;
+      z-index: 1;
+      padding: 64px 64px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
     header {
-      text-align: center;
-      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
-    header h1 {
-      font-size: clamp(2.4rem, 3vw, 3rem);
-      letter-spacing: 0.08em;
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    header p {
-      margin-top: 12px;
-      color: #b1b6d1;
+    .brand h1 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      color: rgba(245, 247, 255, 0.75);
+    }
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 6px;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(135deg, #9b7dff, #53e0ff);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 720px;
+    }
+    .hero p.intro {
+      color: #c6cbe2;
       font-size: 1rem;
+      line-height: 1.8;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
     .hero-button {
-      margin-top: 24px;
-      background: linear-gradient(135deg, #9b7dff, #53e0ff);
-      color: #030617;
-      padding: 16px 32px;
-      border: none;
       border-radius: 999px;
+      padding: 16px 32px;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
+      border: none;
       cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: linear-gradient(135deg, #9b7dff, #53e0ff);
+      color: #01030b;
+      transition: transform 0.25s ease;
+    }
+    .hero-button.secondary {
+      background: transparent;
+      color: #f5f7ff;
+      border: 1px solid rgba(245, 247, 255, 0.2);
     }
     .hero-button:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 14px 30px rgba(83, 224, 255, 0.3);
     }
-    .cards {
+    .stat-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
-      margin-top: 32px;
     }
-    .card {
-      border-radius: 16px;
+    .stat {
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 20px;
-      min-height: 160px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
-    .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
+    .stat h3 {
+      font-size: 2rem;
     }
-    .card p {
-      color: #b0b6d1;
-      line-height: 1.5;
-      flex: 1;
-    }
-    footer {
-      margin-top: 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+    .stat span {
+      display: block;
+      margin-top: 8px;
       color: #9aa0c2;
       font-size: 0.9rem;
     }
-    @media (max-width: 520px) {
-      main {
-        padding: 32px 24px;
+    .section-title {
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #b5badd;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .feature {
+      border-radius: 20px;
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-6px);
+      border-color: rgba(83, 224, 255, 0.7);
+    }
+    .feature h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+    .feature p {
+      color: #d3d9ef;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .timeline {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .timeline article {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      position: relative;
+    }
+    .timeline article::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 24px;
+      width: 32px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #9b7dff, #53e0ff);
+    }
+    .cta {
+      margin-top: 48px;
+      padding: 32px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(155, 125, 255, 0.15), rgba(83, 224, 255, 0.15));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .cta h3 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+    footer {
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #9aa0c2;
+    }
+    @media (max-width: 720px) {
+      .layout {
+        padding: 48px 32px;
       }
-      header {
-        font-size: 1rem;
+      .brand {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+    @media (max-width: 520px) {
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero-actions {
+        flex-direction: column;
+      }
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
   <main>
-    <header>
-      <p>My Digital Corner</p>
-      <h1>魅せるページへようこそ</h1>
-      <p>このサイトは個人のスキルや作品を披露するための空間です。最新のプロジェクトとインスピレーションをまとめています。</p>
-      <button class="hero-button">プロジェクトを見る</button>
-    </header>
-    <section class="cards">
-      <article class="card">
-        <h3>デザイン哲学</h3>
-        <p>大胆な色使いと丁寧な余白を使って、情報をゆったりと伝える。視覚的なリズムを大事にしています。</p>
-      </article>
-      <article class="card">
-        <h3>コードへのこだわり</h3>
-        <p>分かりやすい構造、レスポンシブな振る舞い、アクセシビリティに配慮したマークアップとスタイル。</p>
-      </article>
-      <article class="card">
-        <h3>今後の展望</h3>
-        <p>WebGLやアニメーション、データビジュアライゼーションなど、体験に深みを出す試みに取り組んでいます。</p>
-      </article>
-    </section>
-    <footer>
-      <span>© 2024 My GitHub Pages Site</span>
-      <span>ご要望・ご相談はメールでお気軽に</span>
-    </footer>
+    <div class="layout">
+      <header>
+        <div class="brand">
+          <h1>Signature Studio</h1>
+          <nav class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="hero">
+          <p class="intro">一つひとつのプロジェクトに物語を吹き込み、静と動を織り交ぜたビジュアル体験をお届けします。国際的なクライアントとも共創する感性を大切に。</p>
+          <div class="hero-actions">
+            <button class="hero-button">ポートフォリオを見る</button>
+            <button class="hero-button secondary">制作の軌跡</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="stat-grid">
+        <div class="stat">
+          <h3>12+</h3>
+          <span>リードプロジェクト</span>
+        </div>
+        <div class="stat">
+          <h3>40</h3>
+          <span>コラボレーションパートナー</span>
+        </div>
+        <div class="stat">
+          <h3>100%</h3>
+          <span>リピーター満足度</span>
+        </div>
+        <div class="stat">
+          <h3>24/7</h3>
+          <span>グローバル対応</span>
+        </div>
+      </section>
+
+      <div id="features" class="section-title">What Makes This Space Luxurious</div>
+      <section class="feature-grid">
+        <article class="feature">
+          <h3>感覚を開くデザイン</h3>
+          <p>深いコントラストと繊細なグラデーションが、ブランドのストーリーに奥行きを与えます。光の振る舞いで視線を導き、時間の流れを感じさせる構成です。</p>
+        </article>
+        <article class="feature">
+          <h3>テクノロジーとの共鳴</h3>
+          <p>最新のフロントエンド技術を活用し、パフォーマンスとアニメーションを両立。SVG、Canvas、WebGLの繊細な使い分けで、体験に滑らかな質感を添えます。</p>
+        </article>
+        <article class="feature">
+          <h3>接点を豊かにする言葉</h3>
+          <p>コピーとコンテンツは、静謐な空間に風を吹き込むように。物語の断片を散りばめ、読むたび印象が変わるような構成を目指しています。</p>
+        </article>
+      </section>
+
+      <div id="timeline" class="section-title">Recent Highlights</div>
+      <section class="timeline">
+        <article>
+          <strong>2024 - AR展開</strong>
+          <p>拡張現実を使って空間を再解釈したインスタレーションを企画。ユーザーが操作するたびに異なる照明とサウンドが生まれます。</p>
+        </article>
+        <article>
+          <strong>2023 - 海外ホテル</strong>
+          <p>ヨーロッパのブティックホテルにて、インタラクティブなロビーセクションを手掛け、時間帯で変化する光と声をデザイン。</p>
+        </article>
+        <article>
+          <strong>2022 - デザインアカデミー</strong>
+          <p>次世代のクリエイターに向けたワークショップを主催。触覚と感情を軸にしたプロトタイピングを共創しました。</p>
+        </article>
+      </section>
+
+      <div class="cta" id="contact">
+        <div>
+          <h3>もっと深く知りたいですか？</h3>
+          <p>制作依頼、コンサルティング、コラボレーションいずれも歓迎。まずは対話から始めましょう。</p>
+        </div>
+        <button class="hero-button">お問い合わせ</button>
+      </div>
+
+      <footer>
+        <span>© 2024 Signature Studio</span>
+        <span>Tokyo · Remote · Worldwide</span>
+      </footer>
+    </div>
   </main>
 </body>
 </html>
