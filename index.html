@@ -128,6 +128,68 @@
       flex-direction: column;
       gap: 16px;
     }
+    .overview-section {
+      background: linear-gradient(180deg, #4a6ed0, #4c8fe1);
+      border-radius: 32px;
+      padding: 56px 48px 40px;
+      color: #f6f7fb;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .overview-header h2 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      margin-bottom: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .overview-header p {
+      max-width: 680px;
+      line-height: 1.8;
+      color: rgba(247, 250, 255, 0.9);
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .overview-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px 22px;
+      color: #1f2640;
+      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-height: 340px;
+    }
+    .overview-card h3 {
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+    .overview-card p {
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .overview-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffe4b3;
+      border-radius: 18px;
+    }
+    .overview-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: #d47f00;
+      stroke-width: 2;
+      fill: none;
+    }
     .hero p.intro {
       color: #c6cbe2;
       font-size: 1rem;
@@ -316,6 +378,50 @@
           </div>
         </div>
       </header>
+
+      <section class="overview-section">
+        <div class="overview-header">
+          <h2>事業概要</h2>
+          <p>まなびリンクは、「カリキュラム作成」「PDCAサイクルの実践」「学びコミュニティ」の３つの柱で成り立ち、現場で伴走しながら学びを育てる支援を行っています。</p>
+        </div>
+        <div class="overview-grid">
+          <article class="overview-card">
+            <div class="overview-icon">
+              <svg viewBox="0 0 64 64" role="presentation">
+                <path d="M18 18l28 28M46 18L18 46" stroke-linecap="round"/>
+                <path d="M26 18h12" stroke-linecap="round"/>
+                <path d="M26 46h12" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>カリキュラムの共同制作</h3>
+            <p>目指す生徒像や授業のねらいを教員からヒアリングし、地域の方も巻き込んで新たなカリキュラムを提案します。</p>
+          </article>
+          <article class="overview-card">
+            <div class="overview-icon">
+              <svg viewBox="0 0 64 64" role="presentation">
+                <path d="M16 32a16 16 0 0 1 32 0" />
+                <path d="M48 32h8l-6 8M48 32a16 16 0 0 1-32 0" />
+                <path d="M16 32h-8l6-8" />
+              </svg>
+            </div>
+            <h3>PDCAサイクルの実践</h3>
+            <p>授業プログラムを通してPlan（課題の発見）、Do（調査・実行）、Check（まとめ・表現）、Action（振り返り・課題提示）を回します。</p>
+          </article>
+          <article class="overview-card">
+            <div class="overview-icon">
+              <svg viewBox="0 0 64 64" role="presentation">
+                <path d="M32 54s-18-12-18-26a18 18 0 0 1 36 0c0 14-18 26-18 26z" />
+                <path d="M26 22a4 4 0 1 1-4-4 4 4 0 0 1 4 4z" />
+                <path d="M42 22a4 4 0 1 1-4-4 4 4 0 0 1 4 4z" />
+                <path d="M32 34a4 4 0 1 1-4-4 4 4 0 0 1 4 4z" />
+                <path d="M28 38c2 6 6 6 10 2" />
+              </svg>
+            </div>
+            <h3>学びコミュニティの育成</h3>
+            <p>「熱意はあるけど時間がない」「教育に関わりたい」「専門を生かしたい」などの思いをもつ教員と学生がつながるオンラインコミュニティを育てます。</p>
+          </article>
+        </div>
+      </section>
 
       <section id="about" class="stat-grid">
         <div class="stat">
