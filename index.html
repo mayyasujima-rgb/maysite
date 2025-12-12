@@ -233,6 +233,66 @@
       line-height: 1.7;
       color: #1b1c30;
     }
+    .self-intro {
+      background: linear-gradient(180deg, #1f3a7c, #2861af);
+      border-radius: 36px;
+      padding: 64px 48px;
+      color: #fff;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .self-intro figure {
+      width: 280px;
+      margin: 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 40px rgba(15, 23, 42, 0.35);
+    }
+    .self-intro figure img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+    .self-intro-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      flex: 1;
+    }
+    .self-intro-content h3 {
+      font-size: 1.1rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .self-intro-content h2 {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      margin: 0;
+      letter-spacing: 0.12em;
+    }
+    .self-intro-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .self-intro-button {
+      align-self: flex-start;
+      padding: 18px 48px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffb347, #ff7e5f);
+      color: #1f1f1f;
+      font-weight: 700;
+      border: none;
+      text-decoration: none;
+      box-shadow: 0 15px 25px rgba(255, 126, 95, 0.35);
+      transition: transform 0.2s ease;
+    }
+    .self-intro-button:hover {
+      transform: translateY(-3px);
+    }
     .hero p.intro {
       color: #c6cbe2;
       font-size: 1rem;
@@ -377,6 +437,17 @@
         flex-direction: column;
         gap: 16px;
       }
+      .self-intro {
+        flex-direction: column;
+        text-align: center;
+      }
+      .self-intro figure {
+        width: 100%;
+      }
+      .self-intro-button {
+        width: 100%;
+        text-align: center;
+      }
     }
     @media (max-width: 520px) {
       .nav-links {
@@ -510,6 +581,18 @@
               <p class="past-description">子どもたちの柔軟なアイデアはとても刺激的で、エネルギーをもらった！</p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="self-intro" id="self-intro">
+        <figure>
+          <img src="self-intro.png" alt="代表 安島芽生">
+        </figure>
+        <div class="self-intro-content">
+          <h3>代表</h3>
+          <h2>安島 芽生</h2>
+          <p>あなたも、まなびをつなぐ仲間に</p>
+          <a class="self-intro-button" href="https://forms.gle/jCz87vLQNGtQZ3CS7" target="_blank" rel="noreferrer">活動に参加したい</a>
         </div>
       </section>
 
