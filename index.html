@@ -189,6 +189,50 @@
       max-width: 100%;
       object-fit: cover;
     }
+    .past-activities {
+      background: #e6edff;
+      border-radius: 32px;
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .past-activities h2 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      letter-spacing: 0.12em;
+      text-align: center;
+      color: #1c2b5a;
+    }
+    .past-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .past-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 20px;
+      border: 2px solid rgba(28, 43, 90, 0.08);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .past-card img {
+      width: 100%;
+      border-radius: 18px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .past-label {
+      font-size: 0.95rem;
+      color: #5c6b9b;
+      letter-spacing: 0.08em;
+    }
+    .past-description {
+      line-height: 1.7;
+      color: #1b1c30;
+    }
     .hero p.intro {
       color: #c6cbe2;
       font-size: 1rem;
@@ -457,6 +501,33 @@
           <strong>ビジョン</strong>
           <p>学生の成長と地域貢献を両立する学びの場を追求し、公教育に関わる主体を育て続けます。</p>
         </article>
+      </section>
+
+      <section class="past-activities" id="past-activities">
+        <h2>以前の活動の様子</h2>
+        <div class="past-grid">
+          <article class="past-card">
+            <img src="past.active.png" alt="子どもたちがパソコンで学ぶ様子">
+            <div>
+              <p class="past-label">子どもたちの声</p>
+              <p class="past-description">大学生のお兄さんお姉さんと考えるのが楽しかった！中学校でも学んだことを活かします！（小6）</p>
+            </div>
+          </article>
+          <article class="past-card">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80" alt="教員がプレゼン中">
+            <div>
+              <p class="past-label">教員の声</p>
+              <p class="past-description">大学生のアイデアを取り入れた授業によって、子どもたちも主体的に学ぶことができた。</p>
+            </div>
+          </article>
+          <article class="past-card">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=800&q=80" alt="大学生と子どもたちの集合写真">
+            <div>
+              <p class="past-label">参加大学生の声</p>
+              <p class="past-description">子どもたちの柔軟なアイデアはとても刺激的で、エネルギーをもらった！</p>
+            </div>
+          </article>
+        </div>
       </section>
 
       <div class="cta" id="contact">
